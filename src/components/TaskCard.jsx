@@ -8,8 +8,9 @@ import { IoMdTime } from "react-icons/io";
 const TaskCard = ({ task, fetchTasks }) => {
   const [updatedTask, setUpdatedTask] = useState(task);
 
-  const textColor = useColorModeValue("gray.600", "gray.200");
   const bg = useColorModeValue("white", "gray.800");
+  const textColor = useColorModeValue("gray.600", "gray.200");
+  const dueColor = useColorModeValue("red", "pink");
 
   const { updateTask, updateTaskStatus, deleteTask } = useTaskStore();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -108,21 +109,10 @@ const TaskCard = ({ task, fetchTasks }) => {
               </Heading>
               {task.deadline && (
                 <HStack mt={2}>
-                  { (!task.status && (task.deadline < today)) ? (
-                    <>
-                      <IoMdTime color="red"/>
-                      <Text fontSize={"md"} color="red">
-                        {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
-                      </Text>
-                    </>
-                  ) : (
-                    <>
-                      <IoMdTime />
-                      <Text fontSize={"md"} color={textColor}>
-                        {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
-                      </Text>
-                    </>
-                  )}
+                  <IoMdTime color={(!task.status && (task.deadline < today)) ? dueColor : textColor }/>
+                  <Text fontSize={"md"} color={(!task.status && (task.deadline < today)) ? dueColor : textColor}>
+                    {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
+                  </Text>
                 </HStack>
               )}
             </VStack>
