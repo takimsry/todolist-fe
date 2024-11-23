@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Todolist Front-End** is the user interface for managing tasks through a modern, responsive web application. It utilizes React with Chakra UI for a seamless user experience and integrates with the Todolist API for backend services. This application currently supports the **core features** of the task management system.
+The **Todolist Front-End** is the user interface for managing tasks through a modern, responsive web application. It utilizes React with Chakra UI for a seamless user experience and integrates with the Todolist API for backend services. This application currently supports the **core features** and part of the **additional features** related to task deadlines.
 
 ## Screenshots
 
@@ -20,6 +20,10 @@ The **Todolist Front-End** is the user interface for managing tasks through a mo
 3. Delete a task.
 4. Update/Edit a task.
 5. Mark a task as complete.
+
+### Additional Features:
+1. Add a deadline to a task (date and time).
+2. Show an indicator if a task is overdue.
 
 ## Tech Stack
 
