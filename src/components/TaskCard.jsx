@@ -26,7 +26,7 @@ const TaskCard = ({ task, fetchTasks }) => {
         description: message,
         status: "error",
         isClosable: true,
-        duration: 3000
+        duration: 2000
       })
     } else {
       toast({
@@ -34,7 +34,7 @@ const TaskCard = ({ task, fetchTasks }) => {
         description: message,
         status: "success",
         isClosable: true,
-        duration: 3000
+        duration: 2000
       })
     }
   }
@@ -48,7 +48,7 @@ const TaskCard = ({ task, fetchTasks }) => {
         description: message,
         status: "error",
         isClosable: true,
-        duration: 3000
+        duration: 2000
       })
     } else {
       toast({
@@ -56,7 +56,7 @@ const TaskCard = ({ task, fetchTasks }) => {
         description: message,
         status: "success",
         isClosable: true,
-        duration: 3000
+        duration: 2000
       })
       fetchTasks();
     }
@@ -70,7 +70,7 @@ const TaskCard = ({ task, fetchTasks }) => {
         description: message,
         status: "error",
         isClosable: true,
-        duration: 3000
+        duration: 2000
       })
     } else {
       toast({
@@ -78,7 +78,7 @@ const TaskCard = ({ task, fetchTasks }) => {
         description: message,
         status: "success",
         isClosable: true,
-        duration: 3000
+        duration: 2000
       })
     }
   }
@@ -95,7 +95,7 @@ const TaskCard = ({ task, fetchTasks }) => {
       <Box p={4}>
         <Flex justify={"space-between"}>
           <HStack>
-            <Checkbox 
+            <Checkbox
               isChecked={task.status}
               onChange={() => handleUpdateTaskStatus(task.id)}
               sx={{
@@ -109,9 +109,9 @@ const TaskCard = ({ task, fetchTasks }) => {
               </Heading>
               {task.deadline && (
                 <HStack mt={2}>
-                  <IoMdTime color={(!task.status && (task.deadline < today)) ? dueColor : textColor }/>
+                  <IoMdTime color={(!task.status && (task.deadline < today)) ? dueColor : textColor} />
                   <Text fontSize={"md"} color={(!task.status && (task.deadline < today)) ? dueColor : textColor}>
-                    {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
+                    {task.deadline ? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
                   </Text>
                 </HStack>
               )}
