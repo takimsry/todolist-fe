@@ -6,11 +6,11 @@ The **Todolist Front-End** is the user interface for managing tasks through a mo
 
 ## Screenshots
 
-![Screenshot1](./frontend/public/screenshots/screenshot1.png)
+![Screenshot1](./public/screenshots/screenshot1.png)
 
-![Screenshot2](./frontend/public/screenshots/screenshot2.png)
+![Screenshot2](./public/screenshots/screenshot2.png)
 
-![Screenshot3](./frontend/public/screenshots/screenshot3.png)
+![Screenshot3](./public/screenshots/screenshot3.png)
 
 ## Features
 
