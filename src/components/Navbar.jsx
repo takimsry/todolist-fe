@@ -1,4 +1,4 @@
-import { Button, Container, Flex, HStack, Text, useColorMode } from "@chakra-ui/react";
+import { Button, Container, Flex, HStack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { PlusSquareIcon } from "@chakra-ui/icons";
 import { IoMoon } from "react-icons/io5";
@@ -8,7 +8,15 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   
   return (
-    <Container maxW={"1140px"} px={4}>
+    <Container
+      as={"header"}
+      position={"fixed"}
+      maxW={"100%"}
+      px={20}
+      zIndex={2}
+      backgroundColor={useColorModeValue("gray.100/80", "gray.900/80")}
+      backdropFilter={useColorModeValue("saturate(180%) blur(5px)", "saturate(120%) blur(5px)")}
+    >
       <Flex
         h={16}
         alignItems={"center"}

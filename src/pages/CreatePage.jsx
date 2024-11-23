@@ -33,7 +33,7 @@ const CreatePage = () => {
   }
 
   return (
-    <Container maxW={"container.sm"}>
+    <Container maxW={"container.sm"} pt={"100px"}>
       <VStack
         spacing={8}
       >

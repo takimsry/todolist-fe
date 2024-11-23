@@ -6,7 +6,7 @@ const HomePage = () => {
   const [taskStatus, setTaskStatus] = useState(false);
 
   return (
-    <Container maxW='container.xl' py={12}>
+    <Container maxW='container.xl' py={12} pt={"100px"}>
       <VStack>
         <Text
           fontSize={"30"}
