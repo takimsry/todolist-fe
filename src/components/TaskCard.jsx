@@ -12,8 +12,9 @@ const TaskCard = ({ task, fetchTasks }) => {
   const bg = useColorModeValue("white", "gray.800");
 
   const { updateTask, updateTaskStatus, deleteTask } = useTaskStore();
-  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+  const today = new Date().toISOString();
 
   const handleUpdateTask = async (id, updatedTask) => {
     const { success, message } = await updateTask(id, updatedTask);
@@ -93,17 +94,35 @@ const TaskCard = ({ task, fetchTasks }) => {
       <Box p={4}>
         <Flex justify={"space-between"}>
           <HStack>
-            <Checkbox isChecked={task.status} onChange={() => handleUpdateTaskStatus(task.id)}/>
+            <Checkbox 
+              isChecked={task.status}
+              onChange={() => handleUpdateTaskStatus(task.id)}
+              sx={{
+                borderColor: useColorModeValue("gray.400", "gray.600"),
+                _hover: { borderColor: useColorModeValue("gray.600", "gray.400") }
+              }}
+            />
             <VStack spacing={0} align={"start"} ml={2}>
               <Heading as={"h3"} fontSize={"xl"}>
                 {task.title}
               </Heading>
               {task.deadline && (
                 <HStack mt={2}>
-                  <IoMdTime />
-                  <Text fontSize={"md"} color={textColor}>
-                    {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
-                  </Text>
+                  { (!task.status && (task.deadline < today)) ? (
+                    <>
+                      <IoMdTime color="red"/>
+                      <Text fontSize={"md"} color="red">
+                        {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
+                      </Text>
+                    </>
+                  ) : (
+                    <>
+                      <IoMdTime />
+                      <Text fontSize={"md"} color={textColor}>
+                        {task.deadline? format(new Date(task.deadline), "dd MMMM yyyy, HH:mm") : ""}
+                      </Text>
+                    </>
+                  )}
                 </HStack>
               )}
             </VStack>
@@ -132,7 +151,7 @@ const TaskCard = ({ task, fetchTasks }) => {
                 name="deadline"
                 placeholder="Deadline"
                 type="datetime-local"
-                value={updatedTask.deadline}
+                value={updatedTask.deadline ? format(new Date(updatedTask.deadline), "yyyy-MM-dd'T'HH:mm") : ""}
                 onChange={(e) => setUpdatedTask({ ...updatedTask, deadline: e.target.value })}
               />
             </VStack>

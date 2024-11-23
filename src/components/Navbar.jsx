@@ -13,10 +13,6 @@ const Navbar = () => {
         h={16}
         alignItems={"center"}
         justifyContent={"space-between"}
-        flexDir={{
-          base:"column",
-          sm:"row"
-        }}
       >
         <Text
           fontSize={{ base: "22", sm: "28" }}

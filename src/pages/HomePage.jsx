@@ -25,12 +25,12 @@ const HomePage = () => {
               p={3}
               textAlign="center"
               cursor="pointer"
-              variant={taskStatus === false ? "solid" : "ghost"}
-              colorScheme={taskStatus === false ? "blue" : "gray"}
+              variant={!taskStatus ? "solid" : "ghost"}
+              colorScheme={!taskStatus ? "blue" : "gray"}
               onClick={() => setTaskStatus(false)}
             >
               <Text>On-Going</Text>
-              {taskStatus === false && (
+              {!taskStatus && (
                 <Box
                   position="absolute"
                   bottom={0}
@@ -49,12 +49,12 @@ const HomePage = () => {
               p={3}
               textAlign="center"
               cursor="pointer"
-              variant={taskStatus === true ? "solid" : "ghost"}
-              colorScheme={taskStatus === true ? "blue" : "gray"}
+              variant={taskStatus ? "solid" : "ghost"}
+              colorScheme={taskStatus ? "blue" : "gray"}
               onClick={() => setTaskStatus(true)}
             >
               <Text appearance="blue">Completed</Text>
-              {taskStatus === true && (
+              {taskStatus && (
                 <Box
                   position="absolute"
                   bottom={0}
